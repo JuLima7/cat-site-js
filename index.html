@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu primeiro projeto</title>
+
+    <style>
+body { 
+
+background-color: rgb(153, 226, 153);
+color: rgb(12, 106, 12);
+font: normal 20px Arial;
+
+    }
+
+#gatinho {
+    width: 400px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+     <h1>Seja bem vindo(a) 🐾</h1>
+     <p>Esses são os meus filhos felinos</p>
+
+     <div class="card">
+
+        <img id="gatinho" src="imagens/gato1.jpg">
+        <br><br>
+        <button id="botao">Mudar gatinho</button>
+
+     </div>
+
+<script>
+
+//INTERAÇÕES (como aprendi)
+
+window.alert('Esse é o meu primeiro projeto')//primeira mensagem, que aparece no site
+window.confirm('Foi feito com muito carinho e dedicação, espero que goste 😸')//a mensagem é de ok ou cancelar
+
+let nomeGatinhos= window.prompt('Tem gatinho(s)? Se sim, qual é o nome do(s) gato(s)?')//let para salvar as respostas
+window.alert('Que fofo! Amei ' + nomeGatinhos)
+
+
+//LISTA DE IMAGENS
+
+let fotos = [
+
+            'imagens/gato1.jpg',
+            'imagens/gato2.jpg',
+            'imagens/gato3.jpg',
+            'imagens/gato4.jpg',
+            'imagens/gato5.jpg'
+]
+
+//FOTO ATUAL (COMEÇA NA PRIMEIRA)
+let fotoAtual= 0
+
+//PEGAR ELEMENTOS
+let imagem = document.getElementById('gatinho')
+let botao = document.getElementById('botao')
+
+//AÇÃO DO BOTÃO
+botao.onclick = function () {
+
+
+fotoAtual = fotoAtual + 1
+
+if (fotoAtual == fotos.length) {
+    fotoAtual = 0
+
+}
+  imagem.src = fotos [fotoAtual]
+
+}
+
+
+</script>  
+</body> 
+</html>
+
+
