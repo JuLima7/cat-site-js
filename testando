@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-br
 <head>
@@ -19,3 +20,26 @@
     <script src="script.js"></script>
 </body>
 </html></html>
+=======
+<!DOCTYPE html>
+<html lang="pt-br
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Cantinho de Gatinhos</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Meu Cantinho de Gatinho 🐾</h1>
+
+    <img id="gatinho" src="imagens/gato1.jpg" alt="Um gatinho fofo">
+
+    <br><br>
+
+    <button id="botao">Mudar gatinho 🐱</button>
+
+    <script src="script.js"></script>
+</body>
+</html></html>
+>>>>>>> ea89a4a6898dbded1557df7bacfac2adf5ccaef7
