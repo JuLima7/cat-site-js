@@ -1,191 +1,141 @@
 <!DOCTYPE html>
  <html lang="pt-br">
  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu primeiro projeto</title>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Meu primeiro projeto</title>
 
-    <style>
-        /* CSS: definindo a aparência visual*/
- body { 
+     <style>
+        /* CSS: Definindo a aparência visual */
+        body { 
+            background-color: rgb(253, 240, 213); /* Cor inicial */
+            color: rgb(193, 18, 31); /* Cor do texto */
+            font: normal 20px Arial;
+            transition: background-color 0.5s, color 0.5s; /* Transição suave */
+            text-align: center;
+            padding-top: 50px;
+         }
 
- background-color: rgb(253, 240, 213); /* cor inicial */
- color: rgb(193, 18, 31); /* cor do texto */
- font: normal 20px Arial;
- transition: background-color 0.5s; /* Faz a troca de cor ser suave e não brusca */
- text-align: center; /* Centraliza tudo na página */
- padding-top: 50px; /*é uma propriedade CSS que define a altura do espaçamento interno superior de um elemento, criando distância entre o seu conteúdo e a sua borda superior */
+         #gatinho {
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+         }
 
-    }
+         #legenda {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 24px;
+            min-height: 30px; /* Garante espaço para o texto não pular */
+         }
 
- #gatinho {
-
-    width: 300px; /* Define um tamanho fixo para as fotos não pularem */
-    border-radius: 10px; /* Deixa as bordas da foto arredondadas */
-    box-shadow: 5px 5px 15px rgb(0, 0, 0, 0.2); /* Adiciona uma sombra na foto */
-
- }
-
- #legenda {
-
- font-weight: bold;
- margin-top: 20px;
- font-size: 24px;
-
- }
-
-
- button {
-
- padding: 10px 20px;
- cursor: pointer;
- margin-top: 10px;
- border-radius: 8px;
- border: none;
- background-color: aliceblue;
- font-weight: bold;
-
- }
-
- </style>
+         button {
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: none;
+            background-color: aliceblue;
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+         }
+     </style>
  </head>
 
  <body>
-
 
      <h1>Seja bem vindo(a) 🐾</h1>
      <p>Esses são os meus filhos felinos</p>
 
      <div class="card">
-
         <img id="gatinho" src="imagens/gato1.jpg">
         <br><br>
-        <p id="legenda">Esse é o Nico, o caçula da família 🐾</p>
-
+        <p id="legenda">Quem será que vem agora? 🐾</p>
         <button id="botao">Próximo gatinho</button>
-
      </div>
 
  <script>
+     // --- INTERAÇÕES INICIAIS ---
+     window.alert('Esse é o meu primeiro projeto');
+     window.confirm('Foi criado para contar um pouco sobre os meus gatinhos 😸');
 
- //INTERAÇÕES (como aprendi)
+     let nomeGatinhos = window.prompt('Tem gatinho(s)? Se sim, qual é o nome do(s) gato(s)?');
+     // Usando Template String (com crase) que você aprenderá em breve
+     window.alert(`Que fofo! Amei o nome ${nomeGatinhos}`);
 
- window.alert('Esse é o meu primeiro projeto')//primeira mensagem, que aparece no site
- window.confirm('Foi criado para contar um pouco sobre os meus gatinhos 😸')//a mensagem é de ok ou cancelar
+     // --- ORGANIZANDO OS DADOS (ARRAYS) ---
 
-// Salvando respostas da interação
+     let fotos = [
+        'imagens/gato1.jpg', 'imagens/gato2.jpg', 'imagens/gato3.jpg',
+        'imagens/gato4.jpg', 'imagens/gato5.jpg', 'imagens/gato6.jpg',
+        'imagens/gato7.jpg', 'imagens/gato8.jpg', 'imagens/gato8.jpg',
+        'imagens/gato9.jpg', 'imagens/gato10.jpg', 'imagens/gato11.jpg',
+        'imagens/gato13.jpg'
+     ];
 
- let nomeGatinhos= window.prompt('Tem gatinho(s)? Se sim, qual é o nome do(s) gato(s)?')//let para salvar as respostas
- window.alert(`Que fofo! Amei ${nomeGatinhos}`)
+     let legendas = [
+        'Esse é o Nico, o caçula da família.',
+        'Ele ama carinho e atenção, sempre retribui ronronando.',
+        'O Romeo é muito carinhoso e cuidadoso com os irmãos.',
+        'Curioso com o barulho da máquina 🙀',
+        'Será que se amam?',
+        'Nosso menino Romeo no seu primeiro inverno.',
+        'Acho que engordou um pouco... 😹',
+        'Um olhar apaixonante 😻',
+        'Um solzinho é sempre bem vindo.',
+        'Meu primogênito.',
+        'Os olhinhos mais lindos do mundo.',
+        'Soninho bom 💤',
+        'Será que é apaixonado na mamãe?'
+     ];
 
- // --- ORGANIZANDO OS DADOS (ARRAYS) ---
+     let cores = [
+        'rgb(120, 0, 0)', 'rgb(120, 0, 0)', 'rgb(0, 48, 73)',
+        'rgb(120, 0, 0)', 'rgb(102, 155, 188)', 'rgb(0, 48, 73)',
+        'rgb(0, 48, 73)', 'rgb(0, 48, 73)', 'rgb(0, 48, 73)',
+        'rgb(102, 155, 188)', 'rgb(102, 155, 188)', 'rgb(0, 48, 73)',
+        'rgb(102, 155, 188)'
+     ];
 
- // Array de caminho das fotos
+     // --- VARIÁVEIS DE CONTROLE DO DOM ---
+     let fotoAtual = 0; 
+     let imagem = document.getElementById('gatinho');
+     let elementoLegenda = document.getElementById('legenda');
+     let botao = document.getElementById('botao');
 
- let fotos = [
+     // --- AÇÃO DO BOTÃO ---
+     botao.onclick = function () {
+        // Incrementa o contador (Próxima posição)
+        fotoAtual = fotoAtual + 1;
 
-            'imagens/gato1.jpg',
-            'imagens/gato2.jpg',
-            'imagens/gato3.jpg',
-            'imagens/gato4.jpg',
-            'imagens/gato5.jpg',
-            'imagens/gato6.jpg',
-            'imagens/gato7.jpg',
-            'imagens/gato8.jpg',
-            'imagens/gato9.jpg',
-            'imagens/gato10.jpg',
-            'imagens/gato11.jpg',
-            'imagens/gato12.jpg',
-            'imagens/gato13.jpg',
- ]
+        // Se chegar ao final do array, volta para o início (0)
+        if (fotoAtual == fotos.length) {
+            fotoAtual = 0;
+        }
 
-// Array das frases (legendas), cada frase corresponde a foto a cima.
+        // 1. Atualiza a IMAGEM
+        imagem.src = fotos[fotoAtual];
 
- let legendas= [
+        // 2. Atualiza a LEGENDA (usando innerText)
+        elementoLegenda.innerText = legendas[fotoAtual];
 
- 'Esse é o Nico, o caçula da família.',
- 'O gatinho mais carinhoso da casa.',
- 'O Romeo é o irmão do meio, muito carinhoso e cuidadoso com os irmãos.',
- 'Curioso com o barulho da máquina 🙀',
- 'Será que se amam?',
- 'Nosso menino Romeo no seu primeiro inverno.',
- 'Acho que engordou um pouco... 😹',
- '😻',
- 'Um solzinho é sempre bem vindo',
- 'Meu primogênito.',
- 'Os olhinhos mais lindos do mundo.',
- 'Soninho bom 💤',
- 'Será que é apaixonado na mamãe?'
+     // 3. Atualiza a COR DE FUNDO (Caminho completo: document > body > style)
+     document.body.style.backgroundColor = cores[fotoAtual];
 
- ]
+     // 4. Muda a Cor de Fundo
+     document.body.style.backgroundColor = cores[fotoAtual];
 
-// Array de cores em RGB, cada cor para um gato especifico.
+     // 5. LÓGICA DE COR DO TEXTO (Aqui está a sua mudança!)
+     // Se a cor do fundo for Vinho ou Azul Marinho...
+     if (cores[fotoAtual] == 'rgb(120, 0, 0)' || cores[fotoAtual] == 'rgb(0, 48, 73)') {
+        // O texto fica com a cor creme que você pediu
+        document.body.style.color = 'rgb(253, 240, 213)';
+     } else {
+        // Caso contrário (fundos claros), volta para o vermelho original
+        document.body.style.color = 'rgb(193, 18, 31)';
+     }
+     };
 
- let coresFundo = [
-
-  'rgb(120, 0, 0)', // cor vinho para o nico
-  'rgb(120, 0, 0)', // nico
-  'rgb(0, 48, 73)', // azul marinho para romeo
-  'rgb(120, 0, 0)',
-  'rgb(102, 155, 188)', // azul claro para o mimi
-  'rgb(0, 48, 73)', // romeo
-  'rgb(0, 48, 73)', // romeo
-  'rgb(0, 48, 73)', // romeo
-  'rgb(0, 48, 73)', // romeo
-  'rgb(102, 155, 188)', // mimi
-  'rgb(102, 155, 188)', // mimi
-  'rgb(0, 48, 73)', // romeo
-  'rgb(102, 155, 188)' // mimi
-
- ]
-
- //FOTO ATUAL (COMEÇA NA PRIMEIRA), variaveis de controle do DOM
-
- let fotoAtual= 0 // esse é o contador, ele diz qual posição da lista estamos.
-
- // Pegando os elementos do HTML pelo ID para conseguirmos mexer neles com JS
-
- let imagem = document.getElementById('gatinho')
- let legenda = document.getElementById('legenda')
- let botao = document.getElementById('botao')
-
- // AÇÃO DO BOTÃO/CLIQUE
- // Quando o botão for clicado, essa função "dispara"
-
- botao.onclick = function () {
-
- // 1. Operador de Atribuição e Soma: Aumenta o contador em 1
-
- fotoAtual = fotoAtual + 1
-
- // 2. Condição (IF): Se o contador chegar no tamanho da lista, volta para o zero
- // Isso evita que o programa tente buscar uma foto que não existe
-
- if (fotoAtual == fotos.length) {
-    fotoAtual = 0
- }
-
- // 3. ATUALIZAÇÃO VISUAL (Manipulando o DOM)
- // Troca o atributo 'src' da imagem pela foto na posição atual do array
-
-  imagem.src = fotos [fotoAtual]
-
- 
-
- // Troca o texto de dentro do parágrafo pela frase correspondente
-
- legenda.innerText = legendas[fotoAtual]
-
- // Acessa o estilo do corpo (body) e muda a cor de fundo usando o array de cores
-
- document.body.style.backgroundColor = coresFundo[fotoAtual]
-
-
- }
-
-
- </script>  
- </body> 
- </html>
-
-
+</script>   
+</body> 
+</html>
